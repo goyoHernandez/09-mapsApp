@@ -1,0 +1,26 @@
+<h3 class="mb-3">Zoom-Range</h3>
+
+<div #mapZoomRange class="map-container"></div>
+<div class="row">
+  <div class="col-12">
+    <label class="form-label">
+      Zoom: {{ zoomLevel | number }} -Lng, Lat: [{{
+        coordinates[0] | number: "2.4-4"
+      }}, {{ coordinates[1] | number: "2.4-4" }}]
+    </label>
+    <input
+      type="range"
+      class="form-range"
+      id="customRange1"
+      [value]="zoomLevel"
+      min="0"
+      max="18"
+      #zoomInput
+      (input)="ZoomChange(zoomInput.value)"
+    />
+  </div>
+  <div class="col-12">
+    <button class="btn btn-secondary" (click)="ZoomOut()">-</button>
+    <button class="btn btn-secondary float-end" (click)="ZoomIn()">+</button>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<h3 class="mb-3">Markers</h3>
+
+<ul class="list-group marker">
+  <li class="list-group-item list-group-item-info" (click)="AddMarker()">
+    + Agregar
+  </li>
+  <li
+    class="list-group-item"
+    *ngFor="let marker of markers; let i = index"
+    (click)="GoToMarker(marker.marker!)"
+    (dblclick)="RemoveMarker(i)"
+    [ngStyle]="{
+      'background-color': marker.color,
+      color: 'white'
+    }"
+  >
+    Pin {{ i + 1 }}
+  </li>
+</ul>
+
+<div #mapMarker class="map-container"></div>
